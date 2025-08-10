@@ -1,8 +1,14 @@
 'use client'
 
 import { Calculator, FileText, TrendingUp, Users, Shield, Briefcase } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { MagicCard } from '@/components/magicui/magic-card'
+import { useTheme } from '@/hooks/use-theme'
 
 export default function Services() {
+  const { theme } = useTheme()
+  
   const services = [
     {
       icon: Calculator,
@@ -56,28 +62,37 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-8 card-hover">
-              <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-lg mb-6">
-                <service.icon className="h-8 w-8 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-6">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                    <div className="w-2 h-2 bg-primary-600 rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-6 w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors">
-                En savoir plus
-              </button>
-            </div>
+            <Card key={index} className="p-0 shadow-none border-none">
+              <MagicCard
+                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+                className="p-0 h-full"
+              >
+                <CardHeader className="border-b border-border p-6">
+                  <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-4">
+                    <service.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button className="w-full">
+                    En savoir plus
+                  </Button>
+                </CardContent>
+              </MagicCard>
+            </Card>
           ))}
         </div>
       </div>

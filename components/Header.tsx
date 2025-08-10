@@ -1,75 +1,119 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Calculator, FileText, Users } from 'lucide-react'
+import { Calculator, Plus, Bell } from 'lucide-react'
+import { AppNav } from '@/components/ui/app-nav'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [visibleItemsCount, setVisibleItemsCount] = useState(5)
+
+  const handleUpdate = ({ visibleItemsCount }: { visibleItemsCount: number }) => {
+    setVisibleItemsCount(visibleItemsCount)
+  }
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
-            <Calculator className="h-8 w-8 text-primary-600 mr-2" />
-            <span className="text-2xl font-bold text-gray-900">
-              Cabinet Fiduciaire
-            </span>
-          </div>
-          
-          <nav className="hidden md:flex space-x-8">
-            <a href="#accueil" className="text-gray-700 hover:text-primary-600 transition-colors">
-              Accueil
-            </a>
-            <a href="#services" className="text-gray-700 hover:text-primary-600 transition-colors">
-              Services
-            </a>
-            <a href="#apropos" className="text-gray-700 hover:text-primary-600 transition-colors">
-              À propos
-            </a>
-            <a href="#contact" className="text-gray-700 hover:text-primary-600 transition-colors">
-              Contact
-            </a>
-          </nav>
-
-          <div className="hidden md:flex">
-            <button className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors">
-              Consultation gratuite
-            </button>
-          </div>
-
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary-600"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <a href="#accueil" className="block px-3 py-2 text-gray-700 hover:text-primary-600">
-                Accueil
-              </a>
-              <a href="#services" className="block px-3 py-2 text-gray-700 hover:text-primary-600">
-                Services
-              </a>
-              <a href="#apropos" className="block px-3 py-2 text-gray-700 hover:text-primary-600">
-                À propos
-              </a>
-              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-primary-600">
-                Contact
-              </a>
-              <button className="w-full text-left bg-primary-600 text-white px-3 py-2 rounded-lg hover:bg-primary-700 transition-colors mt-2">
-                Consultation gratuite
-              </button>
+    <header className="sticky top-0 z-50">
+      <AppNav
+        visibleItemsCount={visibleItemsCount >= 2 ? visibleItemsCount : 0}
+        onUpdate={handleUpdate}
+        renderBeforeItems={
+          <AppNav.Item
+            label=""
+            href="/"
+          >
+            <div className="flex items-center">
+              <Calculator className="h-8 w-8 text-primary mr-2" />
+              <span className="text-xl font-bold text-gray-900 hidden sm:block">
+                Cabinet Fiduciaire
+              </span>
             </div>
+          </AppNav.Item>
+        }
+        renderAfterItems={
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative"
+            >
+              <Bell className="h-5 w-5" />
+              <Badge 
+                variant="notification" 
+                className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-xs"
+              >
+                3
+              </Badge>
+            </Button>
+            <Button
+              onClick={() => console.log('Consultation gratuite')}
+              className="bg-primary text-white hover:bg-primary/90"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Consultation gratuite
+            </Button>
           </div>
-        )}
-      </div>
+        }
+        renderTruncateLabel={(hiddenCount) => {
+          if (visibleItemsCount >= 2) {
+            return `${hiddenCount} Plus`
+          } else {
+            return (
+              <span className="flex items-center">
+                <Calculator className="h-4 w-4" />
+                <span className="sr-only">{hiddenCount} Plus</span>
+              </span>
+            )
+          }
+        }}
+      >
+        <AppNav.Item
+          label="Accueil"
+          href="#accueil"
+        />
+        
+        <AppNav.Item
+          label="Services"
+          href="#services"
+          badge={
+            <Badge variant="success" size="sm">
+              6 services
+            </Badge>
+          }
+        />
+        
+        <AppNav.Item
+          label="À propos"
+          href="#apropos"
+          isSelected={false}
+        />
+        
+        <AppNav.Item
+          label="Actualités"
+          href="/actualites"
+          badge={
+            <Badge variant="notification" size="sm">
+              Nouveau
+            </Badge>
+          }
+        />
+        
+        <AppNav.Item
+          label="Contact"
+          href="#contact"
+        />
+        
+        <AppNav.Item
+          label="Mon Espace Client"
+          href="/mon-compte"
+          badge={
+            <Badge variant="default" size="sm">
+              Pro
+            </Badge>
+          }
+        />
+      </AppNav>
     </header>
   )
 }
