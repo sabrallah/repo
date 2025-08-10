@@ -1,8 +1,14 @@
 'use client'
 
 import { Award, Users, Clock, Target } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { MagicCard } from '@/components/magicui/magic-card'
+import { useTheme } from '@/hooks/use-theme'
 
 export default function About() {
+  const { theme } = useTheme()
+  
   const stats = [
     { number: "20+", label: "Années d'expérience" },
     { number: "500+", label: "Clients satisfaits" },
@@ -55,7 +61,7 @@ export default function About() {
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">
+                  <div className="text-3xl font-bold text-primary mb-2">
                     {stat.number}
                   </div>
                   <div className="text-gray-600">{stat.label}</div>
@@ -66,36 +72,48 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <div className="flex items-center justify-center w-12 h-12 bg-primary-100 rounded-lg mb-4">
-                  <value.icon className="h-6 w-6 text-primary-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {value.description}
-                </p>
-              </div>
+              <Card key={index} className="p-0 shadow-none border-none">
+                <MagicCard
+                  gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+                  className="p-0 h-full"
+                >
+                  <CardHeader className="p-6">
+                    <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
+                      <value.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-gray-900 mb-3">
+                      {value.title}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 text-sm">
+                      {value.description}
+                    </CardDescription>
+                  </CardHeader>
+                </MagicCard>
+              </Card>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 bg-primary-50 rounded-2xl p-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Votre succès est notre priorité
-            </h3>
-            <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-              Que vous soyez entrepreneur individuel, PME ou grande entreprise, 
-              nous adaptons nos services à vos besoins spécifiques pour vous accompagner 
-              dans toutes les étapes de votre développement.
-            </p>
-            <button className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-              Découvrir nos références
-            </button>
-          </div>
-        </div>
+        <Card className="mt-16 p-0 shadow-none border-none">
+          <MagicCard
+            gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+            className="p-0"
+          >
+            <CardContent className="p-8 text-center">
+              <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                Votre succès est notre priorité
+              </CardTitle>
+              <CardDescription className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                Que vous soyez entrepreneur individuel, PME ou grande entreprise, 
+                nous adaptons nos services à vos besoins spécifiques pour vous accompagner 
+                dans toutes les étapes de votre développement.
+              </CardDescription>
+              <Button size="lg">
+                Découvrir nos références
+              </Button>
+            </CardContent>
+          </MagicCard>
+        </Card>
       </div>
     </section>
   )
