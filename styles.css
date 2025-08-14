@@ -45,6 +45,18 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Style global pour tous les paragraphes */
+p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Exceptions pour les éléments spécifiques */
+.subtitle {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
 header {
   text-align: center;
   padding: 40px 20px 20px;
@@ -101,6 +113,21 @@ header h1 {
   font-size: 1.2em;
   margin: 0;
   font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+/* Styles globaux pour les headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+/* Exceptions pour les titres avec couleur d'accent */
+.hero h2, .page-header h2, .services-overview h3, .services-detail h3,
+.tax-calendar h3, .audit-process h3, .expertise-areas h3, .team-section h3,
+.contact-form-section h3, .cta-section h3, .service-card h4, .service-item h3,
+.step h4, .sector-item h4, .calendar-item h4, .team-member h4, .contact-item h3 {
+  color: var(--accent-color);
   transition: color 0.3s ease;
 }
 
@@ -492,6 +519,11 @@ nav {
   transition: color 0.3s ease;
 }
 
+.service-card p, .service-item p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
 .service-item ul {
   list-style: none;
   padding: 0;
@@ -588,6 +620,11 @@ nav {
   transition: color 0.3s ease;
 }
 
+.calendar-item p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
 /* Processus d'audit */
 .audit-process {
   margin: 50px 0;
@@ -620,6 +657,11 @@ nav {
   color: var(--accent-color);
   margin-bottom: 15px;
   font-size: 1.3em;
+  transition: color 0.3s ease;
+}
+
+.step p {
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
@@ -657,6 +699,11 @@ nav {
 .sector-item h4 {
   color: var(--accent-color);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.sector-item p {
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
@@ -822,6 +869,21 @@ nav {
   color: var(--accent-color);
   margin-bottom: 10px;
   font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.team-member p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.contact-item p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.cta-section p {
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
