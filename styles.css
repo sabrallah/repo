@@ -1,15 +1,40 @@
 /* From Uiverse.io by asgardOP - Adapté pour Cabinet Fiduciaire */
 body {
   margin: 0;
-  padding: 20px;
-  background-color: #1a1a1a;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d30 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  color: white;
+  font-size: 2.8em;
+  margin: 0 0 10px 0;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  color: #ff6347;
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: 400;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 30px 0;
+  padding: 0 20px;
 }
 
 .ul {
@@ -22,6 +47,7 @@ nav {
   gap: 10px;
   margin: 0;
   padding: 0;
+  justify-content: center;
 }
 
 .li {
@@ -43,6 +69,21 @@ nav {
   transition: 0.3s ease;
   z-index: 1;
   border-radius: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.button.active {
+  color: rgb(172, 40, 0);
+}
+
+.button.active::before {
+  width: 100%;
+  height: 40px;
+  top: 2px;
+  border-radius: 5px;
+  background-color: rgb(255, 83, 53);
+  transform: rotate(0deg);
 }
 
 .p {
@@ -90,6 +131,395 @@ nav {
   transform: translateY(0px);
 }
 
+/* Contenu principal */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ff6347;
+}
+
+.hero p {
+  font-size: 1.3em;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.page-header h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #ff6347;
+}
+
+.page-header p {
+  font-size: 1.2em;
+  color: #cccccc;
+}
+
+/* Services */
+.services-overview, .services-detail {
+  margin-bottom: 50px;
+}
+
+.services-overview h3, .services-detail h3 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #ff6347;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-card, .service-item {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 99, 71, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover, .service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 99, 71, 0.2);
+}
+
+.service-card h4, .service-item h3 {
+  color: #ff6347;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.service-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-item li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 20px;
+}
+
+.service-item li:before {
+  content: "▶";
+  color: #ff6347;
+  position: absolute;
+  left: 0;
+  font-size: 0.8em;
+}
+
+.service-item li:last-child {
+  border-bottom: none;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 99, 71, 0.05));
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.cta-section h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #ff6347;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6347, #ff4500);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+}
+
+/* Calendrier fiscal */
+.tax-calendar {
+  margin: 50px 0;
+}
+
+.tax-calendar h3 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.calendar-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 99, 71, 0.3);
+}
+
+.calendar-item h4 {
+  color: #ff6347;
+  margin-bottom: 10px;
+}
+
+/* Processus d'audit */
+.audit-process {
+  margin: 50px 0;
+}
+
+.audit-process h3 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(255, 99, 71, 0.3);
+}
+
+.step h4 {
+  color: #ff6347;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+/* Secteurs d'expertise */
+.expertise-areas {
+  margin: 50px 0;
+}
+
+.expertise-areas h3 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.sector-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 99, 71, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.sector-item:hover {
+  transform: translateY(-3px);
+}
+
+.sector-item h4 {
+  color: #ff6347;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+.contact-info {
+  margin: 40px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 99, 71, 0.2);
+}
+
+.contact-item h3 {
+  color: #ff6347;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+/* Formulaire de contact */
+.contact-form-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 40px 0;
+}
+
+.contact-form-section h3 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 99, 71, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6347;
+  box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-top: 3px;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #ff6347, #ff4500);
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+}
+
+/* Équipe */
+.team-section {
+  margin: 50px 0;
+}
+
+.team-section h3 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 30px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.team-member {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 99, 71, 0.2);
+}
+
+.team-member h4 {
+  color: #ff6347;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .ul {
@@ -102,13 +532,28 @@ nav {
     padding: 10px 20px;
     width: 200px;
   }
-}
-
-/* Titre du site */
-h1 {
-  text-align: center;
-  color: white;
-  font-size: 2.5em;
-  margin-bottom: 30px;
-  font-weight: 300;
+  
+  header h1 {
+    font-size: 2.2em;
+  }
+  
+  .hero h2 {
+    font-size: 2em;
+  }
+  
+  .hero p {
+    font-size: 1.1em;
+  }
+  
+  .content {
+    padding: 20px 15px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-form {
+    padding: 20px;
+  }
 }

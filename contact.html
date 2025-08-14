@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Cabinet Fiduciaire Excellence</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cabinet Fiduciaire Excellence</h1>
+        <p class="subtitle">Contactez nos experts</p>
+    </header>
+
+    <nav>
+        <ul class="ul">
+            <li class="li">
+                <a href="index.html" class="button"><p class="p">Accueil</p></a>
+            </li>
+            <li class="li">
+                <a href="comptabilite.html" class="button"><p class="p">Comptabilité</p></a>
+            </li>
+            <li class="li">
+                <a href="fiscalite.html" class="button"><p class="p">Fiscalité</p></a>
+            </li>
+            <li class="li">
+                <a href="audit.html" class="button"><p class="p">Audit</p></a>
+            </li>
+            <li class="li">
+                <a href="conseil.html" class="button"><p class="p">Conseil</p></a>
+            </li>
+            <li class="li">
+                <a href="contact.html" class="button active"><p class="p">Contact</p></a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <section class="page-header">
+            <h2>Nous Contacter</h2>
+            <p>Prenez contact avec nos experts pour tous vos besoins</p>
+        </section>
+
+        <section class="contact-info">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Adresse</h3>
+                    <p>123 Avenue des Experts<br>
+                    75001 Paris<br>
+                    France</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📞 Téléphone</h3>
+                    <p>Standard : 01 23 45 67 89<br>
+                    Urgences : 06 12 34 56 78</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>contact@cabinet-excellence.fr<br>
+                    info@cabinet-excellence.fr</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>🕒 Horaires</h3>
+                    <p>Lun-Ven : 8h30 - 18h30<br>
+                    Sam : 9h00 - 12h00<br>
+                    Dimanche : Fermé</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <h3>Formulaire de Contact</h3>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="entreprise">Entreprise</label>
+                    <input type="text" id="entreprise" name="entreprise">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service concerné</label>
+                    <select id="service" name="service">
+                        <option value="">Sélectionnez un service</option>
+                        <option value="comptabilite">Comptabilité</option>
+                        <option value="fiscalite">Fiscalité</option>
+                        <option value="audit">Audit</option>
+                        <option value="conseil">Conseil</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre demande..."></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="rgpd" name="rgpd" required>
+                    <label for="rgpd">J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande *</label>
+                </div>
+
+                <button type="submit" class="submit-button">Envoyer la demande</button>
+            </form>
+        </section>
+
+        <section class="team-section">
+            <h3>Notre Équipe</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Marie DUBOIS</h4>
+                    <p>Expert-Comptable<br>Spécialiste PME</p>
+                </div>
+                <div class="team-member">
+                    <h4>Pierre MARTIN</h4>
+                    <p>Commissaire aux Comptes<br>Audit & Certification</p>
+                </div>
+                <div class="team-member">
+                    <h4>Sophie BERNARD</h4>
+                    <p>Conseiller Fiscal<br>Optimisation fiscale</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
