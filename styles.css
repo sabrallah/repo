@@ -959,12 +959,15 @@ nav {
   border-radius: 15px;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .first-content h4 {
-  margin: 0 0 10px 0;
+  margin: 0;
   font-size: 1.4rem;
   color: white;
+  text-align: center;
+  width: 100%;
 }
 
 .card:hover .first-content {
@@ -990,12 +993,15 @@ nav {
   left: 0;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .second-content h4 {
   margin: 0 0 15px 0;
   font-size: 1.3rem;
   color: white;
+  text-align: center;
+  width: 100%;
 }
 
 .second-content p {
@@ -1003,6 +1009,8 @@ nav {
   font-size: 0.9rem;
   line-height: 1.4;
   margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .card:hover .second-content {
@@ -1019,6 +1027,13 @@ nav {
   gap: 30px;
   margin-top: 30px;
   justify-items: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.services-detail .services-grid {
+  max-width: 1200px;
+  margin: 30px auto 0;
 }
 
 /* Masquer les anciennes cartes */
