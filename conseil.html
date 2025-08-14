@@ -143,5 +143,37 @@
             <a href="contact.html" class="cta-button">Prendre rendez-vous</a>
         </section>
     </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeLabel = document.querySelector('.theme-label');
+        
+        // Check for saved theme preference or default to 'light'
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+        
+        // Set initial state
+        if (savedTheme === 'dark') {
+            themeToggle.checked = true;
+            themeLabel.textContent = 'Light Mode';
+        } else {
+            themeToggle.checked = false;
+            themeLabel.textContent = 'Dark Mode';
+        }
+        
+        // Theme toggle event listener
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeLabel.textContent = 'Light Mode';
+            } else {
+                document.body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeLabel.textContent = 'Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>
