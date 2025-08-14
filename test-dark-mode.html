@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Dark Mode</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS de débogage pour forcer l'application des styles */
+        [data-theme="dark"] p {
+            color: #cccccc !important;
+        }
+        [data-theme="light"] p {
+            color: #333333 !important;
+        }
+        /* Indication visuelle du thème actuel */
+        body::before {
+            content: "Theme: " attr(data-theme);
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: red;
+            color: white;
+            padding: 5px;
+            z-index: 9999;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -38,6 +59,7 @@
         <section class="hero">
             <h2>Test du Système de Thèmes</h2>
             <p>Si vous pouvez basculer entre light et dark mode, le système fonctionne !</p>
+            <p style="border: 1px solid red; padding: 10px;">Ce texte a une bordure rouge pour test : Nous offrons des services comptables, fiscaux et de conseil de haute qualité pour accompagner votre entreprise vers le succès.</p>
         </section>
 
         <section class="service-item">

@@ -35,6 +35,21 @@
   --shadow-heavy: rgba(255, 99, 71, 0.4);
 }
 
+/* Règles spécifiques pour le dark mode */
+[data-theme="dark"] p,
+[data-theme="dark"] .hero p,
+[data-theme="dark"] .service-card p,
+[data-theme="dark"] .service-item p {
+  color: #cccccc !important;
+}
+
+[data-theme="light"] p,
+[data-theme="light"] .hero p,
+[data-theme="light"] .service-card p,
+[data-theme="light"] .service-item p {
+  color: #333333 !important;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -47,13 +62,28 @@ body {
 
 /* Style global pour tous les paragraphes */
 p {
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   transition: color 0.3s ease;
 }
 
 /* Exceptions pour les éléments spécifiques */
 .subtitle {
-  color: var(--accent-color);
+  color: var(--accent-color) !important;
+  transition: color 0.3s ease;
+}
+
+/* Règles spécifiques pour s'assurer que tous les textes changent */
+.hero p,
+.page-header p,
+.service-card p,
+.service-item p,
+.step p,
+.sector-item p,
+.calendar-item p,
+.team-member p,
+.contact-item p,
+.cta-section p {
+  color: var(--text-secondary) !important;
   transition: color 0.3s ease;
 }
 
@@ -402,8 +432,8 @@ nav {
 .hero p {
   font-size: 1.3em;
   line-height: 1.6;
-  color: var(--text-secondary);
   transition: color 0.3s ease;
+  /* Color déjà défini dans la règle globale */
 }
 
 .page-header {
