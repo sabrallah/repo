@@ -1,11 +1,48 @@
 /* From Uiverse.io by asgardOP - Adapté pour Cabinet Fiduciaire */
+
+/* Variables CSS pour les thèmes */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: rgba(0, 123, 255, 0.05);
+  --bg-card-hover: rgba(0, 123, 255, 0.1);
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --accent-color: #007bff;
+  --accent-hover: #0056b3;
+  --border-color: rgba(0, 123, 255, 0.2);
+  --shadow-light: rgba(0, 123, 255, 0.2);
+  --shadow-medium: rgba(0, 123, 255, 0.3);
+  --shadow-heavy: rgba(0, 123, 255, 0.4);
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d30;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
+  --accent-color: #ff6347;
+  --accent-hover: #ff4500;
+  --border-color: rgba(255, 99, 71, 0.2);
+  --shadow-light: rgba(255, 99, 71, 0.2);
+  --shadow-medium: rgba(255, 99, 71, 0.3);
+  --shadow-heavy: rgba(255, 99, 71, 0.4);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #000000;
+  color: var(--text-primary);
   min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -14,21 +51,57 @@ header {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+[data-theme="dark"] header {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #333;
+}
+
+.header-content {
+  flex: 1;
+  text-align: center;
+}
+
+.theme-switch-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-label {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 header h1 {
-  color: #000000;
+  color: var(--text-primary);
   font-size: 2.8em;
   margin: 0 0 10px 0;
   font-weight: 300;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] header h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
-  color: #007bff;
+  color: var(--accent-color);
   font-size: 1.2em;
   margin: 0;
   font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 nav {
@@ -58,7 +131,7 @@ nav {
 .button {
   background-color: transparent;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #000000;
+  color: var(--text-primary);
   border: none;
   font-size: 18px;
   font-weight: 600;
@@ -83,7 +156,7 @@ nav {
   height: 40px;
   top: 2px;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: var(--accent-color);
   transform: rotate(0deg);
 }
 
@@ -105,8 +178,8 @@ nav {
   height: 40px;
   top: 2px;
   border-radius: 5px;
-  background-color: #007bff;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-medium);
 }
 
 .button::before {
@@ -115,7 +188,7 @@ nav {
   position: absolute;
   width: 6px;
   height: 6px;
-  background-color: #007bff;
+  background-color: var(--accent-color);
   left: -8px;
   top: 50%;
   transform: translateY(-50%) rotate(225deg);
@@ -125,11 +198,208 @@ nav {
 }
 
 .button:active::before {
-  background-color: #0056b3;
+  background-color: var(--accent-hover);
 }
 
 .button:active {
   transform: translateY(0px);
+}
+
+/* Theme Switch Styles - From Uiverse.io by Galahhad */
+.switch {
+  /* switch */
+  --switch-width: 46px;
+  --switch-height: 24px;
+  --switch-bg: rgb(131, 131, 131);
+  --switch-checked-bg: var(--accent-color);
+  --switch-offset: calc((var(--switch-height) - var(--circle-diameter)) / 2);
+  --switch-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
+  /* circle */
+  --circle-diameter: 18px;
+  --circle-bg: #fff;
+  --circle-shadow: 1px 1px 2px rgba(146, 146, 146, 0.45);
+  --circle-checked-shadow: -1px 1px 2px rgba(163, 163, 163, 0.45);
+  --circle-transition: var(--switch-transition);
+  /* icon */
+  --icon-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
+  --icon-cross-color: var(--switch-bg);
+  --icon-cross-size: 6px;
+  --icon-checkmark-color: var(--switch-checked-bg);
+  --icon-checkmark-size: 10px;
+  /* effect line */
+  --effect-width: calc(var(--circle-diameter) / 2);
+  --effect-height: calc(var(--effect-width) / 2 - 1px);
+  --effect-bg: var(--circle-bg);
+  --effect-border-radius: 1px;
+  --effect-transition: all .2s ease-in-out;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch {
+  display: inline-block;
+}
+
+.switch svg {
+  -webkit-transition: var(--icon-transition);
+  -o-transition: var(--icon-transition);
+  transition: var(--icon-transition);
+  position: absolute;
+  height: auto;
+}
+
+.switch .checkmark {
+  width: var(--icon-checkmark-size);
+  color: var(--icon-checkmark-color);
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.switch .cross {
+  width: var(--icon-cross-size);
+  color: var(--icon-cross-color);
+}
+
+.slider {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background: var(--switch-bg);
+  border-radius: 999px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transition: var(--switch-transition);
+  -o-transition: var(--switch-transition);
+  transition: var(--switch-transition);
+  cursor: pointer;
+}
+
+.circle {
+  width: var(--circle-diameter);
+  height: var(--circle-diameter);
+  background: var(--circle-bg);
+  border-radius: inherit;
+  -webkit-box-shadow: var(--circle-shadow);
+  box-shadow: var(--circle-shadow);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: var(--circle-transition);
+  -o-transition: var(--circle-transition);
+  transition: var(--circle-transition);
+  z-index: 1;
+  position: absolute;
+  left: var(--switch-offset);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: var(--effect-width);
+  height: var(--effect-height);
+  left: calc(var(--switch-offset) + (var(--effect-width) / 2));
+  background: var(--effect-bg);
+  border-radius: var(--effect-border-radius);
+  -webkit-transition: var(--effect-transition);
+  -o-transition: var(--effect-transition);
+  transition: var(--effect-transition);
+}
+
+/* Switch actions */
+.switch input:checked+.slider {
+  background: var(--switch-checked-bg);
+}
+
+.switch input:checked+.slider .checkmark {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.switch input:checked+.slider .cross {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.switch input:checked+.slider::before {
+  left: calc(100% - var(--effect-width) - (var(--effect-width) / 2) - var(--switch-offset));
+}
+
+.switch input:checked+.slider .circle {
+  left: calc(100% - var(--circle-diameter) - var(--switch-offset));
+  -webkit-box-shadow: var(--circle-checked-shadow);
+  box-shadow: var(--circle-checked-shadow);
+}
+
+/* Contenu principal */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px;
+  background: var(--bg-card);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.hero p {
+  font-size: 1.3em;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: var(--bg-card);
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.page-header h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.page-header p {
+  font-size: 1.2em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 /* Contenu principal */
@@ -190,7 +460,8 @@ nav {
   text-align: center;
   font-size: 2em;
   margin-bottom: 30px;
-  color: #007bff;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
 }
 
 .services-grid {
@@ -201,23 +472,24 @@ nav {
 }
 
 .service-card, .service-item {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 30px;
   border-radius: 15px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 123, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .service-card:hover, .service-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-light);
 }
 
 .service-card h4, .service-item h3 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 15px;
   font-size: 1.4em;
+  transition: color 0.3s ease;
 }
 
 .service-item ul {
@@ -227,18 +499,20 @@ nav {
 
 .service-item li {
   padding: 8px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
   position: relative;
   padding-left: 20px;
-  color: #333333;
+  color: var(--text-secondary);
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .service-item li:before {
   content: "▶";
-  color: #007bff;
+  color: var(--accent-color);
   position: absolute;
   left: 0;
   font-size: 0.8em;
+  transition: color 0.3s ease;
 }
 
 .service-item li:last-child {
@@ -249,21 +523,23 @@ nav {
 .cta-section {
   text-align: center;
   padding: 40px;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
+  background: var(--bg-card-hover);
   border-radius: 15px;
   margin-top: 50px;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .cta-section h3 {
   font-size: 1.8em;
   margin-bottom: 15px;
-  color: #007bff;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
 }
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
   color: white;
   padding: 15px 30px;
   border-radius: 8px;
@@ -271,12 +547,12 @@ nav {
   font-weight: 600;
   margin-top: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 4px 15px var(--shadow-medium);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 6px 20px var(--shadow-heavy);
 }
 
 /* Calendrier fiscal */
@@ -286,8 +562,9 @@ nav {
 
 .tax-calendar h3 {
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .calendar-grid {
@@ -297,16 +574,18 @@ nav {
 }
 
 .calendar-item {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid rgba(0, 123, 255, 0.3);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .calendar-item h4 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 /* Processus d'audit */
@@ -316,8 +595,9 @@ nav {
 
 .audit-process h3 {
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .process-steps {
@@ -327,18 +607,20 @@ nav {
 }
 
 .step {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 25px;
   border-radius: 10px;
   text-align: center;
   position: relative;
-  border: 2px solid rgba(0, 123, 255, 0.3);
+  border: 2px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .step h4 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 15px;
   font-size: 1.3em;
+  transition: color 0.3s ease;
 }
 
 /* Secteurs d'expertise */
@@ -348,8 +630,9 @@ nav {
 
 .expertise-areas h3 {
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .sectors-grid {
@@ -359,12 +642,12 @@ nav {
 }
 
 .sector-item {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid rgba(0, 123, 255, 0.2);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .sector-item:hover {
@@ -372,8 +655,9 @@ nav {
 }
 
 .sector-item h4 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 /* Contact */
@@ -389,32 +673,36 @@ nav {
 }
 
 .contact-item {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 25px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-item h3 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 15px;
   font-size: 1.3em;
+  transition: color 0.3s ease;
 }
 
 /* Formulaire de contact */
 .contact-form-section {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 40px;
   border-radius: 15px;
   margin: 40px 0;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-form-section h3 {
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .contact-form {
@@ -429,8 +717,9 @@ nav {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #333333;
+  color: var(--text-secondary);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .form-group input,
@@ -438,25 +727,32 @@ nav {
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid rgba(0, 123, 255, 0.3);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #000000;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: inherit;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--shadow-light);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #666;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 .checkbox-group {
@@ -477,7 +773,7 @@ nav {
 }
 
 .submit-button {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
   color: white;
   padding: 15px 40px;
   border: none;
@@ -492,7 +788,7 @@ nav {
 
 .submit-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 6px 20px var(--shadow-heavy);
 }
 
 /* Équipe */
@@ -502,8 +798,9 @@ nav {
 
 .team-section h3 {
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .team-grid {
@@ -513,17 +810,19 @@ nav {
 }
 
 .team-member {
-  background: rgba(0, 123, 255, 0.05);
+  background: var(--bg-card);
   padding: 25px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .team-member h4 {
-  color: #007bff;
+  color: var(--accent-color);
   margin-bottom: 10px;
   font-size: 1.2em;
+  transition: color 0.3s ease;
 }
 
 /* Responsive Design */
@@ -537,6 +836,17 @@ nav {
     font-size: 16px;
     padding: 10px 20px;
     width: 200px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .theme-switch-container {
+    position: relative;
+    top: auto;
+    right: auto;
   }
   
   header h1 {
