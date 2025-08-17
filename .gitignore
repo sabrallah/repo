@@ -1,0 +1,4 @@
+# Local servers
+.DS_Store
+node_modules/
+*.log
