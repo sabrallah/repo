@@ -9,18 +9,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="slide-container">
-        <div class="slide-content">
-            <!-- Header Section -->
-            <header class="slide-header">
-                <div class="company-logo">
-                    <i class="fas fa-coins"></i>
-                    <span>RAYAN GOLD</span>
-                </div>
-                <div class="report-badge">
-                    <span>Rapport Financier</span>
-                </div>
-            </header>
+    <!-- Navigation -->
+    <nav class="slide-navigation">
+        <button class="nav-btn prev-btn" onclick="previousSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="slide-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+        </div>
+        <button class="nav-btn next-btn" onclick="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </nav>
+
+    <div class="slides-container">
+        <!-- Slide 1: Company Overview -->
+        <div class="slide-container active" id="slide-1">
+            <div class="slide-content">
+                <!-- Header Section -->
+                <header class="slide-header">
+                    <div class="company-logo">
+                        <i class="fas fa-coins"></i>
+                        <span>RAYAN GOLD</span>
+                    </div>
+                    <div class="report-badge">
+                        <span>Rapport Financier</span>
+                    </div>
+                </header>
 
             <!-- Main Title -->
             <div class="main-title">
@@ -96,24 +112,181 @@
                 </div>
             </section>
 
-            <!-- Footer -->
-            <footer class="slide-footer">
-                <div class="footer-content">
-                    <div class="slide-number">
-                        <span>01</span>
+                <!-- Footer -->
+                <footer class="slide-footer">
+                    <div class="footer-content">
+                        <div class="slide-number">
+                            <span>01</span>
+                        </div>
+                        <div class="footer-text">
+                            <span>Analyse Financière Professionnelle</span>
+                        </div>
                     </div>
-                    <div class="footer-text">
-                        <span>Analyse Financière Professionnelle</span>
-                    </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+
+            <!-- Background Elements -->
+            <div class="bg-elements">
+                <div class="bg-circle bg-circle-1"></div>
+                <div class="bg-circle bg-circle-2"></div>
+                <div class="bg-pattern"></div>
+            </div>
         </div>
 
-        <!-- Background Elements -->
-        <div class="bg-elements">
-            <div class="bg-circle bg-circle-1"></div>
-            <div class="bg-circle bg-circle-2"></div>
-            <div class="bg-pattern"></div>
+        <!-- Slide 2: Balance Sheet Analysis -->
+        <div class="slide-container" id="slide-2">
+            <div class="slide-content">
+                <!-- Header Section -->
+                <header class="slide-header">
+                    <div class="company-logo">
+                        <i class="fas fa-coins"></i>
+                        <span>RAYAN GOLD</span>
+                    </div>
+                    <div class="report-badge">
+                        <span>Analyse du Bilan</span>
+                    </div>
+                </header>
+
+                <!-- Main Title -->
+                <div class="main-title">
+                    <h1 class="title-primary">Analyse du Bilan</h1>
+                    <p class="subtitle">Évolution et structure financière 2023-2024</p>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-dot"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Growth Overview -->
+                <section class="growth-overview">
+                    <div class="growth-card">
+                        <div class="growth-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Croissance du Bilan</h3>
+                        </div>
+                        <div class="growth-content">
+                            <div class="growth-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">2023</span>
+                                    <span class="stat-value">1 105 800,60 DH</span>
+                                </div>
+                                <div class="growth-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="growth-rate">+22,3%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">2024</span>
+                                    <span class="stat-value highlight">1 352 990,49 DH</span>
+                                </div>
+                            </div>
+                            <p class="growth-description">
+                                Cette expansion est principalement due à l'augmentation des immobilisations en non-valeurs et des créances de l'actif circulant.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financial Structure -->
+                <section class="financial-structure">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-pie"></i>
+                        Structure Financière (2024)
+                    </h3>
+                    
+                    <div class="structure-container">
+                        <div class="chart-container">
+                            <div class="pie-chart" id="pieChart">
+                                <div class="pie-segment equity-segment" data-percentage="85.7">
+                                    <span class="segment-label">Capitaux Propres<br>85,7%</span>
+                                </div>
+                                <div class="pie-segment debt-segment" data-percentage="14.3">
+                                    <span class="segment-label">Dettes<br>14,3%</span>
+                                </div>
+                                <div class="chart-center">
+                                    <span class="total-amount">1 352 990,49 DH</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="structure-details">
+                            <div class="detail-card equity-card">
+                                <div class="detail-header">
+                                    <div class="detail-icon equity-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <h4>Capitaux Propres</h4>
+                                </div>
+                                <div class="detail-content">
+                                    <span class="amount">1 159 291,77 DH</span>
+                                    <span class="percentage">85,7% du total</span>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-card debt-card">
+                                <div class="detail-header">
+                                    <div class="detail-icon debt-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <h4>Dettes</h4>
+                                </div>
+                                <div class="detail-content">
+                                    <span class="amount">193 698,72 DH</span>
+                                    <span class="percentage">14,3% du total</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="conclusion-section">
+                    <div class="conclusion-card">
+                        <div class="conclusion-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Conclusion Bilan</h3>
+                        </div>
+                        <p class="conclusion-text">
+                            La structure financière de l'entreprise est <strong>extrêmement solide</strong>, témoignant d'une forte capitalisation et d'une faible dépendance à l'endettement.
+                        </p>
+                        <div class="conclusion-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Forte capitalisation</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Croissance soutenue</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Faible endettement</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="slide-footer">
+                    <div class="footer-content">
+                        <div class="slide-number">
+                            <span>02</span>
+                        </div>
+                        <div class="footer-text">
+                            <span>Analyse Financière Professionnelle</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Background Elements -->
+            <div class="bg-elements">
+                <div class="bg-circle bg-circle-1"></div>
+                <div class="bg-circle bg-circle-2"></div>
+                <div class="bg-pattern"></div>
+            </div>
         </div>
     </div>
 
