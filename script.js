@@ -1,15 +1,149 @@
-// Enhanced Financial Report Slide with Interactive Features
-class FinancialReportSlide {
+// Enhanced Financial Report Slides with Navigation and Interactive Features
+class FinancialReportSlides {
     constructor() {
+        this.currentSlide = 0;
+        this.totalSlides = 2;
+        this.isAnimating = false;
         this.init();
     }
 
     init() {
+        this.setupSlideNavigation();
         this.setupAnimations();
         this.setupInteractions();
         this.setupCounterAnimations();
         this.setupParallaxEffect();
         this.setupKeyboardNavigation();
+        this.setupPieChart();
+        this.updateNavigationState();
+    }
+
+    // Setup slide navigation
+    setupSlideNavigation() {
+        // Navigation buttons
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const indicators = document.querySelectorAll('.indicator');
+
+        // Add event listeners
+        if (prevBtn) prevBtn.addEventListener('click', () => this.previousSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Touch/swipe support
+        this.setupTouchNavigation();
+    }
+
+    // Setup touch navigation for mobile
+    setupTouchNavigation() {
+        let startX = 0;
+        let endX = 0;
+        const slideContainer = document.querySelector('.slides-container');
+
+        slideContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        slideContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) { // Minimum swipe distance
+                if (diff > 0) {
+                    this.nextSlide();
+                } else {
+                    this.previousSlide();
+                }
+            }
+        }, { passive: true });
+    }
+
+    // Navigate to previous slide
+    previousSlide() {
+        if (this.isAnimating || this.currentSlide === 0) return;
+        this.goToSlide(this.currentSlide - 1);
+    }
+
+    // Navigate to next slide
+    nextSlide() {
+        if (this.isAnimating || this.currentSlide === this.totalSlides - 1) return;
+        this.goToSlide(this.currentSlide + 1);
+    }
+
+    // Go to specific slide
+    goToSlide(slideIndex) {
+        if (this.isAnimating || slideIndex === this.currentSlide || 
+            slideIndex < 0 || slideIndex >= this.totalSlides) return;
+
+        this.isAnimating = true;
+        const currentSlideEl = document.querySelector('.slide-container.active');
+        const nextSlideEl = document.getElementById(`slide-${slideIndex + 1}`);
+
+        // Remove active class from current slide
+        if (currentSlideEl) {
+            currentSlideEl.classList.remove('active');
+            if (slideIndex < this.currentSlide) {
+                currentSlideEl.classList.add('next');
+            } else {
+                currentSlideEl.classList.add('prev');
+            }
+        }
+
+        // Add active class to next slide
+        if (nextSlideEl) {
+            nextSlideEl.classList.remove('prev', 'next');
+            nextSlideEl.classList.add('active');
+        }
+
+        // Update current slide index
+        this.currentSlide = slideIndex;
+
+        // Update navigation state
+        this.updateNavigationState();
+
+        // Reset animation flag after transition
+        setTimeout(() => {
+            this.isAnimating = false;
+            // Clean up classes
+            document.querySelectorAll('.slide-container').forEach(slide => {
+                if (!slide.classList.contains('active')) {
+                    slide.classList.remove('prev', 'next');
+                }
+            });
+        }, 800);
+
+        // Trigger slide-specific animations
+        this.triggerSlideAnimations(slideIndex);
+    }
+
+    // Update navigation button and indicator states
+    updateNavigationState() {
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const indicators = document.querySelectorAll('.indicator');
+
+        // Update buttons
+        if (prevBtn) prevBtn.disabled = this.currentSlide === 0;
+        if (nextBtn) nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    // Trigger slide-specific animations
+    triggerSlideAnimations(slideIndex) {
+        setTimeout(() => {
+            if (slideIndex === 1) { // Second slide
+                this.animatePieChart();
+                this.animateGrowthStats();
+                this.animateFinancialCards();
+            }
+        }, 300);
     }
 
     // Setup entrance animations with staggered timing
@@ -212,6 +346,14 @@ class FinancialReportSlide {
     setupKeyboardNavigation() {
         document.addEventListener('keydown', (e) => {
             switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.previousSlide();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    this.nextSlide();
+                    break;
                 case 'Enter':
                 case ' ':
                     const focusedCard = document.activeElement.closest('.info-card');
@@ -252,10 +394,72 @@ class FinancialReportSlide {
         }, 100);
     }
 
+    // Setup pie chart interactions
+    setupPieChart() {
+        const pieChart = document.getElementById('pieChart');
+        if (pieChart) {
+            pieChart.addEventListener('click', () => {
+                this.animatePieChart();
+            });
+        }
+    }
+
+    // Animate pie chart
+    animatePieChart() {
+        const pieChart = document.getElementById('pieChart');
+        if (pieChart) {
+            pieChart.style.animation = 'none';
+            setTimeout(() => {
+                pieChart.style.animation = 'pieRotate 2s ease-out';
+            }, 50);
+        }
+    }
+
+    // Animate growth statistics
+    animateGrowthStats() {
+        const statValues = document.querySelectorAll('.stat-value');
+        statValues.forEach((stat, index) => {
+            setTimeout(() => {
+                stat.style.transform = 'scale(1.1)';
+                stat.style.color = '#22c55e';
+                setTimeout(() => {
+                    stat.style.transform = 'scale(1)';
+                    if (!stat.classList.contains('highlight')) {
+                        stat.style.color = '#1f2937';
+                    }
+                }, 500);
+            }, index * 200);
+        });
+
+        // Animate growth arrow
+        const growthArrow = document.querySelector('.growth-arrow i');
+        if (growthArrow) {
+            setTimeout(() => {
+                growthArrow.style.animation = 'bounce 1s ease-out 3';
+            }, 800);
+        }
+    }
+
+    // Animate financial structure cards
+    animateFinancialCards() {
+        const detailCards = document.querySelectorAll('.detail-card');
+        detailCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+                card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                
+                setTimeout(() => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                    card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                }, 600);
+            }, index * 300);
+        });
+    }
+
     // Add dynamic text effects
     addTextEffects() {
-        const titlePrimary = document.querySelector('.title-primary');
-        const titleSecondary = document.querySelector('.title-secondary');
+        const titlePrimary = document.querySelector('.slide-container.active .title-primary');
+        const titleSecondary = document.querySelector('.slide-container.active .title-secondary');
 
         if (titlePrimary) {
             this.addTypewriterEffect(titlePrimary);
@@ -357,19 +561,54 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Initialize the slide when DOM is loaded
+// Global navigation functions for button onclick handlers
+let slideInstance;
+
+function previousSlide() {
+    if (slideInstance) {
+        slideInstance.previousSlide();
+    }
+}
+
+function nextSlide() {
+    if (slideInstance) {
+        slideInstance.nextSlide();
+    }
+}
+
+function goToSlide(index) {
+    if (slideInstance) {
+        slideInstance.goToSlide(index);
+    }
+}
+
+// Initialize the slides when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const slide = new FinancialReportSlide();
+    slideInstance = new FinancialReportSlides();
     
     // Add text effects after initial animations
     setTimeout(() => {
-        slide.addTextEffects();
+        slideInstance.addTextEffects();
     }, 1000);
 
     // Add accessibility improvements
-    document.querySelector('.slide-content').setAttribute('role', 'main');
-    document.querySelector('.company-overview').setAttribute('role', 'region');
-    document.querySelector('.company-overview').setAttribute('aria-label', 'Informations de la société');
+    const slideContents = document.querySelectorAll('.slide-content');
+    slideContents.forEach((content, index) => {
+        content.setAttribute('role', 'main');
+        content.setAttribute('aria-label', `Slide ${index + 1}`);
+    });
+    
+    const companyOverview = document.querySelector('.company-overview');
+    if (companyOverview) {
+        companyOverview.setAttribute('role', 'region');
+        companyOverview.setAttribute('aria-label', 'Informations de la société');
+    }
+
+    const financialStructure = document.querySelector('.financial-structure');
+    if (financialStructure) {
+        financialStructure.setAttribute('role', 'region');
+        financialStructure.setAttribute('aria-label', 'Structure financière');
+    }
     
     // Add loading state
     document.body.classList.add('loaded');
@@ -393,5 +632,5 @@ function debounce(func, wait) {
 
 // Export for potential module use
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = FinancialReportSlide;
+    module.exports = FinancialReportSlides;
 }

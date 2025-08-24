@@ -492,6 +492,420 @@ body {
     }
 }
 
+/* Second Slide Styles - Balance Sheet Analysis */
+
+/* Growth Overview */
+.growth-overview {
+    margin-bottom: 40px;
+    animation: fadeInUp 1.8s ease-out;
+}
+
+.growth-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+    border: 2px solid rgba(34, 197, 94, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.growth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #22c55e, #10b981);
+}
+
+.growth-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.growth-header i {
+    color: #22c55e;
+    font-size: 24px;
+}
+
+.growth-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.growth-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.stat-value.highlight {
+    color: #22c55e;
+    font-size: 24px;
+}
+
+.growth-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.growth-arrow i {
+    color: #22c55e;
+    font-size: 24px;
+    animation: bounce 2s infinite;
+}
+
+.growth-rate {
+    background: linear-gradient(135deg, #22c55e, #10b981);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.growth-description {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Financial Structure */
+.financial-structure {
+    margin-bottom: 40px;
+    animation: fadeInUp 2s ease-out;
+}
+
+.structure-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Pie Chart */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-chart {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    background: conic-gradient(
+        #f59e0b 0deg 308.52deg,
+        #ef4444 308.52deg 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: pieRotate 2s ease-out;
+}
+
+.chart-center {
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.total-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Structure Details */
+.structure-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.equity-card::before {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.debt-card::before {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card:hover::before {
+    transform: scaleX(1);
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.detail-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.equity-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.debt-icon {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.detail-header h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-content .amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.detail-content .percentage {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+/* Conclusion Section */
+.conclusion-section {
+    animation: fadeInUp 2.2s ease-out;
+}
+
+.conclusion-card {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.conclusion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.conclusion-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.conclusion-header i {
+    color: #22c55e;
+    font-size: 24px;
+}
+
+.conclusion-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.conclusion-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.conclusion-text strong {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+.conclusion-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.highlight-item i {
+    color: #3b82f6;
+    font-size: 24px;
+}
+
+.highlight-item span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: center;
+}
+
+/* Additional Animations */
+@keyframes pieRotate {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(-5px);
+    }
+    60% {
+        transform: translateX(5px);
+    }
+}
+
+/* Responsive Design for Second Slide */
+@media (max-width: 768px) {
+    .structure-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .pie-chart {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .chart-center {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .total-amount {
+        font-size: 12px;
+    }
+    
+    .growth-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .conclusion-highlights {
+        gap: 20px;
+    }
+    
+    .slide-navigation {
+        top: 20px;
+        padding: 10px 20px;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
 @media (max-width: 480px) {
     .slide-content {
         padding: 30px 20px;
@@ -507,5 +921,24 @@ body {
     
     .section-title {
         font-size: 22px;
+    }
+    
+    .pie-chart {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .chart-center {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .total-amount {
+        font-size: 10px;
+    }
+    
+    .growth-card,
+    .conclusion-card {
+        padding: 20px;
     }
 }
