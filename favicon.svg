@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <!-- Fond du logo -->
+  <circle cx="50" cy="50" r="48" fill="#1a3c6e" />
+  
+  <!-- Lettre E stylisée -->
+  <path d="M30 30 L30 70 L70 70" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M30 50 L60 50" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" />
+  <path d="M30 30 L70 30" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" />
+  
+  <!-- Accent doré -->
+  <path d="M70 30 L70 40" stroke="#e8b829" stroke-width="8" fill="none" stroke-linecap="round" />
+  <path d="M60 70 L70 70" stroke="#e8b829" stroke-width="8" fill="none" stroke-linecap="round" />
+</svg>
