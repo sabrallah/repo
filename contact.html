@@ -11,8 +11,13 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">ExpertCompta</div>
-            <ul class="nav-links">
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <div class="logo">ExpertCompta</div>
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span class="hamburger" aria-hidden="true"></span>
+                </button>
+            </div>
+            <ul class="nav-links" role="menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -157,5 +162,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
