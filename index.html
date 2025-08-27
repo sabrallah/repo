@@ -27,9 +27,56 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Expertise Comptable de Confiance</h1>
-                <p>Accompagnez votre entreprise vers la réussite avec nos services professionnels de comptabilité, fiscalité et audit.</p>
-                <a href="contact.html" class="btn">Nous contacter</a>
+                <div class="hero-content">
+                    <h1>Expertise Comptable de Confiance</h1>
+                    <p>Accompagnez votre entreprise vers la réussite avec nos services professionnels de comptabilité, fiscalité et audit.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn">Nous contacter</a>
+                        <a href="services.html" class="btn btn-secondary">Nos services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+                <div>
+                    <div class="stat-number" data-target="25" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Années d'expérience</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="500" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Clients satisfaits</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="1500" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Dossiers traités</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="98" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">% de satisfaction</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+                <div>
+                    <div class="stat-number" data-target="25" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Années d'expérience</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="500" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Clients satisfaits</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="1500" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Dossiers traités</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="98" style="font-size: 3rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">% de satisfaction</p>
+                </div>
             </div>
         </section>
 
@@ -39,25 +86,25 @@
                 <div class="service-card">
                     <i class="fas fa-calculator"></i>
                     <h3>Comptabilité</h3>
-                    <p>Tenue comptable complète, bilan annuel, compte de résultat et conseils personnalisés.</p>
+                    <p>Tenue comptable complète, bilan annuel, compte de résultat et conseils personnalisés pour optimiser votre gestion financière.</p>
                     <a href="services.html" class="btn">En savoir plus</a>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-file-invoice-dollar"></i>
                     <h3>Fiscalité</h3>
-                    <p>Déclarations fiscales, optimisation fiscale et accompagnement lors de contrôles.</p>
+                    <p>Déclarations fiscales, optimisation fiscale et accompagnement lors de contrôles pour réduire votre charge fiscale.</p>
                     <a href="services.html" class="btn">En savoir plus</a>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-search"></i>
                     <h3>Audit</h3>
-                    <p>Audit légal, audit contractuel et commissariat aux comptes.</p>
+                    <p>Audit légal, audit contractuel et commissariat aux comptes pour sécuriser vos états financiers.</p>
                     <a href="services.html" class="btn">En savoir plus</a>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Conseils Financiers</h3>
-                    <p>Analyse financière, prévisionnel et accompagnement stratégique.</p>
+                    <p>Analyse financière, prévisionnel et accompagnement stratégique pour développer votre entreprise.</p>
                     <a href="services.html" class="btn">En savoir plus</a>
                 </div>
             </div>
@@ -96,10 +143,15 @@
             </div>
         </section>
 
-        <section id="cta" class="container" style="text-align: center;">
-            <h2>Prêt à optimiser votre gestion comptable ?</h2>
-            <p>Contactez-nous dès aujourd'hui pour un rendez-vous gratuit et sans engagement.</p>
-            <a href="contact.html" class="btn">Demander un devis</a>
+        <section id="cta" class="container" style="text-align: center; background: var(--background-tertiary); padding: 4rem 2rem; border-radius: var(--border-radius-xl); margin: 4rem 0;">
+            <h2 style="margin-bottom: 1rem;">Prêt à optimiser votre gestion comptable ?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-secondary);">Contactez-nous dès aujourd'hui pour un rendez-vous gratuit et sans engagement.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn">Demander un devis</a>
+                <a href="tel:+33123456789" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> 01 23 45 67 89
+                </a>
+            </div>
         </section>
     </main>
 
