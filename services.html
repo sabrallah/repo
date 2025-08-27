@@ -6,9 +6,14 @@
     <title>Services - Cabinet d'Expertise Comptable</title>
     <meta name="description" content="Découvrez tous nos services : comptabilité, fiscalité, audit, conseils financiers et accompagnement personnalisé.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Basculer le mode sombre">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
         <nav class="container">
             <div style="display:flex; align-items:center; gap:1rem;">
@@ -30,8 +35,25 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Nos Services</h1>
-                <p>Une offre complète d'expertise comptable adaptée à vos besoins</p>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge">💼 Services complets</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Nos
+                        <span class="hero-highlight">Services</span>
+                    </h1>
+                    <p class="hero-subtitle">Une offre complète d'expertise comptable adaptée à vos besoins spécifiques</p>
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary magnetic">Voir tous les services</a>
+                        <a href="contact.html" class="btn btn-secondary magnetic">Demander un devis</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-shape shape-1 floating"></div>
+                    <div class="hero-shape shape-2 floating"></div>
+                    <div class="hero-shape shape-3 floating"></div>
+                </div>
             </div>
         </section>
 

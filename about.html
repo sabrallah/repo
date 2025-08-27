@@ -6,9 +6,14 @@
     <title>À propos - Cabinet d'Expertise Comptable</title>
     <meta name="description" content="Découvrez notre équipe d'experts comptables et notre expérience de plus de 20 ans dans l'accompagnement des entreprises.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Basculer le mode sombre">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
         <nav class="container">
             <div style="display:flex; align-items:center; gap:1rem;">
@@ -30,8 +35,24 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>À propos d'ExpertCompta</h1>
-                <p>Plus de 20 ans d'expertise au service de votre réussite</p>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge">🏢 Notre équipe</span>
+                    </div>
+                    <h1 class="hero-title">
+                        À propos d'
+                        <span class="hero-highlight">ExpertCompta</span>
+                    </h1>
+                    <p class="hero-subtitle">Plus de 25 ans d'expertise au service de votre réussite financière</p>
+                    <div class="hero-actions">
+                        <a href="#team" class="btn btn-primary magnetic">Découvrir l'équipe</a>
+                        <a href="contact.html" class="btn btn-secondary magnetic">Nous contacter</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-shape shape-1 floating"></div>
+                    <div class="hero-shape shape-2 floating"></div>
+                </div>
             </div>
         </section>
 
@@ -45,25 +66,25 @@
             <h2>Notre équipe</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                 <div class="team-member" style="text-align: center;">
-                    <img src="images/alain-dubois.jpg" alt="Alain Dubois" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+                    <img src="images/alain-dubois.svg" alt="Alain Dubois" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Alain Dubois</h3>
                     <p>Expert-comptable fondateur</p>
                     <p>Plus de 30 ans d'expérience en comptabilité et fiscalité.</p>
                 </div>
                 <div class="team-member" style="text-align: center;">
-                    <img src="images/marie-laurent.jpg" alt="Marie Laurent" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+                    <img src="images/marie-laurent.svg" alt="Marie Laurent" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Marie Laurent</h3>
                     <p>Directrice associée</p>
                     <p>Spécialiste en audit et commissariat aux comptes.</p>
                 </div>
                 <div class="team-member" style="text-align: center;">
-                    <img src="images/pierre-martin.jpg" alt="Pierre Martin" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+                    <img src="images/pierre-martin.svg" alt="Pierre Martin" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Pierre Martin</h3>
                     <p>Chef comptable</p>
                     <p>Expert en optimisation fiscale et gestion de trésorerie.</p>
                 </div>
                 <div class="team-member" style="text-align: center;">
-                    <img src="images/sophie-bernard.jpg" alt="Sophie Bernard" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+                    <img src="images/sophie-bernard.svg" alt="Sophie Bernard" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Sophie Bernard</h3>
                     <p>Conseillère juridique</p>
                     <p>Accompagnement juridique et fiscal pour les entreprises.</p>

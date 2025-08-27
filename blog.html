@@ -6,9 +6,14 @@
     <title>Blog - Cabinet d'Expertise Comptable</title>
     <meta name="description" content="Actualités comptables, conseils fiscaux et informations sur la gestion d'entreprise.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <button class="theme-toggle" aria-label="Basculer le mode sombre">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
         <nav class="container">
             <div style="display:flex; align-items:center; gap:1rem;">
@@ -30,8 +35,24 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Blog ExpertCompta</h1>
-                <p>Actualités, conseils et expertise comptable</p>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge">📝 Actualités</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Blog
+                        <span class="hero-highlight">ExpertCompta</span>
+                    </h1>
+                    <p class="hero-subtitle">Actualités, conseils et expertise comptable pour vous accompagner</p>
+                    <div class="hero-actions">
+                        <a href="#blog" class="btn btn-primary magnetic">Lire les articles</a>
+                        <a href="#newsletter" class="btn btn-secondary magnetic">S'abonner</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-shape shape-1 floating"></div>
+                    <div class="hero-shape shape-2 floating"></div>
+                </div>
             </div>
         </section>
 
@@ -68,7 +89,7 @@
                 </article>
 
                 <article class="blog-post">
-                    <img src="images/blog4.jpg" alt="Gestion trésorerie">
+                    <img src="images/blog4.svg" alt="Gestion trésorerie">
                     <div class="blog-post-content">
                         <h3>Optimiser la gestion de trésorerie en période d'inflation</h3>
                         <p class="blog-meta"><i class="fas fa-calendar"></i> 1 août 2025 | <i class="fas fa-user"></i> Sophie Bernard</p>
@@ -78,7 +99,7 @@
                 </article>
 
                 <article class="blog-post">
-                    <img src="images/blog5.jpg" alt="RSE entreprises">
+                    <img src="images/blog5.svg" alt="RSE entreprises">
                     <div class="blog-post-content">
                         <h3>RSE : comment intégrer la responsabilité sociétale dans votre stratégie</h3>
                         <p class="blog-meta"><i class="fas fa-calendar"></i> 25 juillet 2025 | <i class="fas fa-user"></i> Alain Dubois</p>
@@ -88,7 +109,7 @@
                 </article>
 
                 <article class="blog-post">
-                    <img src="images/blog6.jpg" alt="Création entreprise">
+                    <img src="images/blog6.svg" alt="Création entreprise">
                     <div class="blog-post-content">
                         <h3>Guide complet pour créer votre entreprise en 2025</h3>
                         <p class="blog-meta"><i class="fas fa-calendar"></i> 20 juillet 2025 | <i class="fas fa-user"></i> Marie Laurent</p>
