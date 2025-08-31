@@ -39,24 +39,34 @@ export default function Home() {
 
       <main id="main-content">
         {/* Hero Section */}
-      <section className="relative text-white py-20 md:py-32 min-h-[400px] flex items-center bg-gradient-to-r from-indigo-600 to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      <section
+        className="relative text-white py-20 md:py-32 min-h-[400px] flex items-center overflow-hidden"
+        style={{
+          background: `linear-gradient(rgba(79, 70, 229, 0.8), rgba(37, 99, 235, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/30 to-blue-600/30"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse animation-delay-600"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-fade-in-up">
-            Cabinet Fiduciaire Moderne
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            Votre partenaire de confiance pour une gestion patrimoniale sécurisée et performante
-          </p>
-          <div className="animate-fade-in-up animation-delay-400">
-            <Link
-              href="/contact"
-              className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 transform hover:scale-105 focus:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Nous Contacter
-            </Link>
+          <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 animate-fade-in-up text-shadow-lg">
+              Cabinet Fiduciaire Moderne
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-200 text-shadow">
+              Votre partenaire de confiance pour une gestion patrimoniale sécurisée et performante
+            </p>
+            <div className="animate-fade-in-up animation-delay-400">
+              <Link
+                href="/contact"
+                className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 transform hover:scale-105 focus:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Nous Contacter
+              </Link>
+            </div>
           </div>
         </div>
       </section>
