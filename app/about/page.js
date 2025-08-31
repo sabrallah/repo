@@ -13,7 +13,7 @@ export default function About() {
     const img = new Image()
     img.onload = () => setImageLoaded(true)
     img.onerror = () => setImageError(true)
-    img.src = '/images/hero-professional.jpg'
+    img.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
   }, [])
 
   return (
@@ -26,7 +26,7 @@ export default function About() {
         style={{
           background: imageError
             ? `linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(37, 99, 235, 0.9), rgba(147, 51, 234, 0.1))`
-            : `linear-gradient(rgba(79, 70, 229, 0.85), rgba(37, 99, 235, 0.8)), url('/images/hero-professional.jpg')`,
+            : `linear-gradient(rgba(79, 70, 229, 0.85), rgba(37, 99, 235, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
