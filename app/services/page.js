@@ -1,12 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
 export default function Services() {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
   const [currentService, setCurrentService] = useState(0)
+
+  useEffect(() => {
+    const img = new Image()
+    img.onload = () => setImageLoaded(true)
+    img.onerror = () => setImageError(true)
+    img.src = '/images/hero-professional.jpg'
+  }, [])
 
   const services = [
     {
@@ -37,20 +46,36 @@ export default function Services() {
       <Nav currentPage="services" />
 
       {/* Hero Section */}
-      <section className="relative text-white py-32 min-h-[400px] flex items-center bg-gradient-to-r from-indigo-600 to-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Cabinet Fiduciaire Moderne
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Votre partenaire de confiance pour une gestion patrimoniale sécurisée et performante
-          </p>
-          <Link
-            href="/contact"
-            className="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
-          >
-            Nous Contacter
-          </Link>
+      <section
+        className="relative text-white py-32 min-h-[400px] flex items-center"
+        style={{
+          background: imageError
+            ? `linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(37, 99, 235, 0.9), rgba(147, 51, 234, 0.1))`
+            : `linear-gradient(rgba(79, 70, 229, 0.85), rgba(37, 99, 235, 0.8)), url('/images/hero-professional.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          opacity: imageLoaded || imageError ? 1 : 0.8,
+          transition: 'opacity 0.3s ease-in-out'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/30 to-blue-600/30"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <div className="backdrop-blur-sm bg-white/10 rounded-2xl p-8 border border-white/20 shadow-2xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">
+              Cabinet Fiduciaire Moderne
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-shadow">
+              Votre partenaire de confiance pour une gestion patrimoniale sécurisée et performante
+            </p>
+            <Link
+              href="/contact"
+              className="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
+            >
+              Nous Contacter
+            </Link>
+          </div>
         </div>
       </section>
 
